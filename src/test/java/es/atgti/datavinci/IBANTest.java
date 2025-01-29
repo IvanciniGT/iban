@@ -43,4 +43,12 @@ class IBANTest {
         assertFalse(miIBAN.isValid());
         assertEquals(IBANValidationInfo.INVALID_FORMAT, miIBAN.getValidationInfo());
     }
+
+    @Test
+    void generateRandomValidIBAN() {
+        IBAN iban = IBAN.of("ES", null, (""+Math.random() +Math.random()+Math.random()+Math.random()  ).replace(".","").substring(0, 20));
+        assertNotNull(iban);
+        assertTrue(iban.isValid());
+        System.out.println(iban.format().orElseThrow());
+    }
 }

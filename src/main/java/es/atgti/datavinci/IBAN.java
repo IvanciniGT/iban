@@ -29,6 +29,10 @@ public class IBAN {
         return IBANUtils.of(iban);
     }
 
+    public static IBAN of(String countryCode, String checkDigits, String bban) {
+        return IBANUtils.of(countryCode, checkDigits, bban);
+    }
+
     public Optional<String> format() {
         return IBANUtils.format(this);
     }

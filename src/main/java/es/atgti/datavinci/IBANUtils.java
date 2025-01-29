@@ -14,6 +14,18 @@ public class IBANUtils {
             return Optional.empty();
     }
 
+    public static IBAN of(String countryCode, String checkDigits, String bban) {
+        if(countryCode == null){
+            return new IBAN(null, null, null, false, IBANValidationInfo.INVALID_COUNTRY_CODE);
+        }
+        if(bban == null){
+            return new IBAN(null, null, null, false, IBANValidationInfo.INVALID_BBAN);
+        }
+        if(checkDigits == null){
+            checkDigits = calculateIbanCheckDigits(countryCode, bban);
+        }
+        return of(countryCode + checkDigits + bban);
+    }
     public static IBAN of(String iban) {
         if(iban == null){
             return new IBAN(null, null, null, false, IBANValidationInfo.INVALID_NULL_IBAN);
