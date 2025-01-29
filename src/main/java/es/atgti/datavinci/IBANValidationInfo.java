@@ -1,0 +1,15 @@
+package es.atgti.datavinci;
+
+public enum IBANValidationInfo {
+
+    OK,
+    INVALID_NULL_IBAN,
+    INVALID_EMPTY_IBAN,
+    INVALID_COUNTRY_CODE,
+    INVALID_CHECK_DIGITS,
+    INVALID_BBAN,
+    INVALID_LENGTH,
+    INVALID_FORMAT,
+    INVALID_CHECK_DIGITS_ALGORITHM,
+
+}
